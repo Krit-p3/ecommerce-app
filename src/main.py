@@ -1,9 +1,15 @@
-from fastapi import FastAPI, status, HTTPException , Depends 
-
-
+from fastapi import FastAPI
+from handlers import  user, admin
+import model 
+from database import engine 
 
 app = FastAPI()
+app.include_router(user)
+app.include_router(admin)
 
-@app.get("/", status_code=status.HTTP_200_OK)
-async def hello(name: str):
-    return {f"Hello, {name}"}
+
+
+
+model.Base.metadata.create_all(engine)
+
+
