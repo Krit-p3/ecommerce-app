@@ -8,7 +8,8 @@ from fastapi.security import OAuth2PasswordBearer
 from pydantic import BaseModel
 from config import config
 
-from model import Users, Admin
+from database.user import Users 
+from database.admin import Admin
 
 SECRET_KEY = config.SECRET_KEY 
 ALGORITHM = config.ALGORITHM
