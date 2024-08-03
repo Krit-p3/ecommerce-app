@@ -19,7 +19,7 @@ async def create_admin(request: ClientRequest, db: db_dependency):
 
 @admin.post('/token', response_model=auth.Token)
 async def admin_access_token(form_data: Annotated[OAuth2PasswordRequestForm, Depends()], db: db_dependency):
-    admin = auth.authenticate_user(form_data.username, form_data.password, db)
+    admin = auth.authenticate_admin(form_data.username, form_data.password, db)
 
     if not admin:
         raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail = "Could't validate admin")
