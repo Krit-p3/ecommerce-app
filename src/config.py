@@ -12,9 +12,11 @@ class BaseConfig(BaseSettings):
         env_file=os.path.join(os.path.dirname(__file__), '..','.env'),
         extra='ignore')
 
-
 class GlobalConfig(BaseConfig):
-	DATABASE_URL: Optional[str] = None
+    DATABASE_URL: Optional[str] = None
+    SECRET_KEY: Optional[str] = None
+    ALGORITHM: Optional[str] = None
+    
 
 class DevConfig(GlobalConfig):
 	model_config = SettingsConfigDict(env_prefix='DEV_')
