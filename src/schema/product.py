@@ -15,4 +15,5 @@ class CreateProduct(BaseModel):
     size: str
     quantity: float
 
-
+class UpdateProduct(CreateProduct):
+   pass  
