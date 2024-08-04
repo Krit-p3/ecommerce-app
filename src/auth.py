@@ -15,8 +15,14 @@ SECRET_KEY = config.SECRET_KEY
 ALGORITHM = config.ALGORITHM
 
 bcrypt_context = CryptContext(schemes=['bcrypt'], deprecated='auto')
-user_oauth2_bearer = OAuth2PasswordBearer(tokenUrl='user/token')
-admin_oauth2_bearer = OAuth2PasswordBearer(tokenUrl='admin/token')
+user_oauth2_bearer = OAuth2PasswordBearer(
+    tokenUrl='/user/token',
+    scheme_name="user_oauth2_bearer"
+)
+admin_oauth2_bearer = OAuth2PasswordBearer(
+    tokenUrl='/admin/token',
+    scheme_name="admin_oauth2_bearer"
+)
 
 class Token(BaseModel):
     access_token: str
