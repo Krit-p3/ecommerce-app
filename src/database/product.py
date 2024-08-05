@@ -11,3 +11,4 @@ class Products(Base):
     price = Column(Float)
     size = Column(String)
     quantity = Column(Float)
+
