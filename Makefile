@@ -10,8 +10,8 @@ test:
 
 lint:
 	# add linting 
-	echo "linting ..."
+	poetry run ruff check --fix $(WORKDIR)
 
 format: 
 	# add format
-	echo "formating ..."
+	poetry run ruff format $(WORKDIR)
